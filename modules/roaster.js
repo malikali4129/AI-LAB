@@ -1,3 +1,8 @@
+const ROAST_DATA_FILES = {
+  hinglish: "modules/roastData.json",
+  english: "modules/englishRoastData.json"
+};
+
 function normalizeRoastData(data) {
   return {
     soft: Array.isArray(data?.soft) ? data.soft.filter(Boolean) : [],
@@ -6,9 +11,11 @@ function normalizeRoastData(data) {
   };
 }
 
-async function loadRoastData() {
+async function loadRoastData(language) {
+  const filePath = ROAST_DATA_FILES[language] || ROAST_DATA_FILES.hinglish;
+
   try {
-    const response = await fetch(`modules/roastData.json?v=${Date.now()}`, { cache: "no-store" });
+    const response = await fetch(`${filePath}?v=${Date.now()}`, { cache: "no-store" });
     if (response.ok) {
       const json = await response.json();
       return normalizeRoastData(json);
@@ -84,12 +91,26 @@ function initRoaster(root) {
 
   const sounds = createSoundEngine();
   let roastData = { soft: [], medium: [], savage: [] };
+  let roastLanguage = "hinglish";
+  try {
+    const storedLanguage = window.localStorage?.getItem("aimlab-roast-language");
+    roastLanguage = storedLanguage === "english" ? "english" : "hinglish";
+  } catch (error) {
+    roastLanguage = "hinglish";
+  }
   let typingToken = { cancelled: false };
   let isGenerating = false;
 
   root.innerHTML = `
     <div class="roast-card">
       <div class="roast-grid">
+        <div class="roast-language">
+          <label class="download-label">Roast language</label>
+          <div class="roast-language-toggle" role="tablist" aria-label="Roast language">
+            <button type="button" class="ghost-button" data-roast-language="hinglish">Hinglish</button>
+            <button type="button" class="ghost-button" data-roast-language="english">English</button>
+          </div>
+        </div>
         <input class="download-input" id="roast-name" type="text" placeholder="Enter name" autocomplete="off" />
         <div class="roast-intensity">
           <label class="download-label" for="roast-intensity">Roast intensity</label>
@@ -116,12 +137,35 @@ function initRoaster(root) {
   const intensityInput = root.querySelector("#roast-intensity");
   const intensityValue = root.querySelector("#roast-intensity-value");
   const output = root.querySelector("#roast-output");
+  const languageButtons = [...root.querySelectorAll("[data-roast-language]")];
 
   const generateBtn = root.querySelector("[data-roast-generate]");
   const copyBtn = root.querySelector("[data-roast-copy]");
   const shareBtn = root.querySelector("[data-roast-share]");
   const stopBtn = root.querySelector("[data-roast-stop]");
   const statusEl = root.querySelector("#roast-status");
+
+  function getLanguageLabel(language) {
+    return language === "english" ? "English" : "Hinglish";
+  }
+
+  function persistLanguage(language) {
+    roastLanguage = language;
+    try {
+      window.localStorage?.setItem("aimlab-roast-language", language);
+    } catch (error) {
+      // Ignore storage failures in private or restricted browsing modes.
+    }
+    updateLanguageUI();
+  }
+
+  function updateLanguageUI() {
+    languageButtons.forEach((button) => {
+      const active = button.dataset.roastLanguage === roastLanguage;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+  }
 
   function setGeneratingState(active) {
     isGenerating = active;
@@ -131,6 +175,9 @@ function initRoaster(root) {
     stopBtn.disabled = !active;
     nameInput.disabled = active;
     intensityInput.disabled = active;
+    languageButtons.forEach((button) => {
+      button.disabled = active;
+    });
     generateBtn.textContent = active ? "Generating..." : "Generate Roast";
     statusEl.classList.toggle("is-active", active);
     statusEl.textContent = active ? "Generating roast" : "Ready to roast.";
@@ -221,6 +268,25 @@ function initRoaster(root) {
     }
   }
 
+  function switchLanguage(language) {
+    if (language === roastLanguage) {
+      return;
+    }
+
+    persistLanguage(language);
+    output.innerHTML = `<span class="speed-ok">Switched to ${getLanguageLabel(language)} roasts.</span>`;
+    loadRoastData(language).then((data) => {
+      if (roastLanguage !== language) {
+        return;
+      }
+
+      roastData = normalizeRoastData(data);
+      if (roastData.soft.length + roastData.medium.length + roastData.savage.length === 0) {
+        output.innerHTML = `<span class="speed-warn">Could not load ${language} roast data. If running via file://, use a local server.</span>`;
+      }
+    });
+  }
+
   async function shareRoast() {
     const text = output.textContent.trim();
     if (!text || text === "Enter a name, choose intensity, and generate a roast.") {
@@ -240,16 +306,26 @@ function initRoaster(root) {
     await copyRoast();
   }
 
+  languageButtons.forEach((button) => {
+    button.addEventListener("click", () => switchLanguage(button.dataset.roastLanguage));
+  });
+
   intensityInput.addEventListener("input", setIntensityLabel);
   generateBtn.addEventListener("click", generateRoast);
   copyBtn.addEventListener("click", copyRoast);
   shareBtn.addEventListener("click", shareRoast);
   stopBtn.addEventListener("click", setStoppedState);
+  updateLanguageUI();
 
-  loadRoastData().then((data) => {
+  const initialLanguage = roastLanguage;
+  loadRoastData(initialLanguage).then((data) => {
+    if (roastLanguage !== initialLanguage) {
+      return;
+    }
+
     roastData = normalizeRoastData(data);
     if (roastData.soft.length + roastData.medium.length + roastData.savage.length === 0) {
-      output.innerHTML = '<span class="speed-warn">Could not load roastData.json. If running via file://, use a local server.</span>';
+      output.innerHTML = `<span class="speed-warn">Could not load ${initialLanguage} roast data. If running via file://, use a local server.</span>`;
     }
   });
 

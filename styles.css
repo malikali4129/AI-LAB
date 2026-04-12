@@ -954,6 +954,28 @@ body.page-transition-out .particles {
   gap: 10px;
 }
 
+.roast-language {
+  display: grid;
+  gap: 8px;
+}
+
+.roast-language-toggle {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.roast-language-toggle .ghost-button {
+  justify-content: center;
+}
+
+.roast-language-toggle .ghost-button.is-active {
+  background: linear-gradient(135deg, rgba(95, 251, 255, 0.16), rgba(157, 125, 255, 0.18));
+  border-color: rgba(95, 251, 255, 0.42);
+  color: var(--text);
+  box-shadow: 0 0 0 1px rgba(95, 251, 255, 0.08) inset;
+}
+
 .roast-intensity {
   display: grid;
   gap: 8px;

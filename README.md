@@ -34,11 +34,12 @@ This file gives a quick overview of the current tools (modules) in AIM LAB.
 - Page: `roaster.html`
 - Purpose: Generates random personalized roasts with selectable intensity.
 - Extra features:
+  - Hinglish and English roast modes
   - Roast intensity slider (Soft / Medium / Savage)
   - Share roast button
   - Copy roast button
   - Sound effects during generate/type animation
-  - Loads roast lists directly from `modules/roastData.json`
+  - Loads roast lists directly from `modules/roastData.json` and `modules/englishRoastData.json`
   - Roast lines are managed in JSON file (not editable from module UI)
 
 ## Shared UX Features
