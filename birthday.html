@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Calculator | Fake AI Lab</title>
+  <meta name="description" content="A funny birthday calculator that tells your age and next birthday with a little roast." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="birthday-fixed">
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <header class="topbar" data-reveal>
+      <div class="header-left">
+        <span class="module-icon">🎂</span>
+        <h1 class="module-title">Birthday</h1>
+      </div>
+      <div class="header-right">
+        <nav class="header-shortcuts" aria-label="Quick modules">
+          <a href="index.html" class="shortcut-icon" title="Home">🏠</a>
+          <a href="birthday.html" class="shortcut-icon" title="Birthday">🎂</a>
+          <a href="download-speed.html" class="shortcut-icon" title="Download">⚡</a>
+          <a href="password-checker.html" class="shortcut-icon" title="Password">🔐</a>
+          <a href="gpa-calculator.html" class="shortcut-icon" title="GPA">🎓</a>
+          <a href="roaster.html" class="shortcut-icon" title="Roaster">🔥</a>
+        </nav>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+    <nav class="menu-dropdown" id="menu-dropdown" data-reveal>
+      <a href="index.html" class="menu-item">🏠 Home</a>
+      <a href="birthday.html" class="menu-item">🎂 Birthday</a>
+      <a href="download-speed.html" class="menu-item">⚡ Download</a>
+      <a href="password-checker.html" class="menu-item">🔐 Password</a>
+      <a href="gpa-calculator.html" class="menu-item">🎓 GPA</a>
+      <a href="roaster.html" class="menu-item">🔥 Roaster</a>
+    </nav>
+
+    <main class="stage feature-page birthday-page-min" data-reveal>
+      <div id="birthday-module" class="module-root birthday-minimal" data-reveal></div>
+    </main>
+
+    <div class="results-modal" id="results-modal" role="dialog" aria-hidden="true">
+      <div class="modal-overlay"></div>
+      <div class="modal-content glass-card">
+        <button class="modal-close" id="modal-close" aria-label="Close results" type="button">×</button>
+        <div class="modal-header">
+          <h3>Age Report</h3>
+        </div>
+        <div id="birthday-result-output" class="result-lines" aria-live="polite">
+          <div class="birthday-stat">Pick a birthday to begin the emotional audit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="modules/birthdayCalculator.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
