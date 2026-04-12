@@ -7,8 +7,57 @@ const gpaModuleRoot = document.getElementById("gpa-module");
 const roasterModuleRoot = document.getElementById("roaster-module");
 const menuBtn = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
-const revealItems = [...document.querySelectorAll("[data-reveal]")];
+let revealItems = [];
 let isNavigating = false;
+
+const MODULE_REGISTRY = [
+  {
+    href: "index.html",
+    icon: "🏠",
+    shortTitle: "Home",
+    menuTitle: "Home"
+  },
+  {
+    href: "birthday.html",
+    icon: "🎂",
+    shortTitle: "Birthday",
+    menuTitle: "Birthday",
+    homeTitle: "Birthday Calculator",
+    homeDescription: "Find your age and next birthday"
+  },
+  {
+    href: "download-speed.html",
+    icon: "⚡",
+    shortTitle: "Download",
+    menuTitle: "Download",
+    homeTitle: "Download Speed Calculator",
+    homeDescription: "Calculate download times"
+  },
+  {
+    href: "password-checker.html",
+    icon: "🔐",
+    shortTitle: "Password",
+    menuTitle: "Password",
+    homeTitle: "Password Strength Checker",
+    homeDescription: "Check password strength and safety tips"
+  },
+  {
+    href: "gpa-calculator.html",
+    icon: "🎓",
+    shortTitle: "GPA",
+    menuTitle: "GPA",
+    homeTitle: "GPA Calculator",
+    homeDescription: "Calculate semester and cumulative GPA"
+  },
+  {
+    href: "roaster.html",
+    icon: "🔥",
+    shortTitle: "Roaster",
+    menuTitle: "Roaster",
+    homeTitle: "Roaster Module",
+    homeDescription: "Generate funny roasts with intensity controls"
+  }
+];
 
 const typingLines = [
   "Neural networks are thinking about lunch.",
@@ -24,9 +73,45 @@ const typingState = {
 };
 
 function initializePageTransitions() {
+  revealItems = [...document.querySelectorAll("[data-reveal]")];
   revealItems.forEach((item, index) => {
     item.style.setProperty("--reveal-delay", `${220 + index * 90}ms`);
   });
+}
+
+function renderSharedNavigation() {
+  const shortcutNav = document.querySelector(".header-shortcuts");
+  if (shortcutNav) {
+    shortcutNav.innerHTML = MODULE_REGISTRY.map(
+      (module) => `<a href="${module.href}" class="shortcut-icon" title="${module.shortTitle}">${module.icon}</a>`
+    ).join("");
+  }
+
+  if (menuDropdown) {
+    menuDropdown.innerHTML = MODULE_REGISTRY.map(
+      (module) => `<a href="${module.href}" class="menu-item">${module.icon} ${module.menuTitle}</a>`
+    ).join("");
+  }
+}
+
+function renderHomeCards() {
+  const appsGrid = document.querySelector(".apps-grid");
+  if (!appsGrid) {
+    return;
+  }
+
+  const modulesForHome = MODULE_REGISTRY.filter((module) => module.homeTitle && module.homeDescription);
+  appsGrid.innerHTML = modulesForHome
+    .map(
+      (module) => `
+        <a class="app-card" href="${module.href}" data-reveal>
+          <span class="app-icon">${module.icon}</span>
+          <h3>${module.homeTitle}</h3>
+          <p>${module.homeDescription}</p>
+        </a>
+      `
+    )
+    .join("");
 }
 
 function finishPageTransitions() {
@@ -165,6 +250,8 @@ document.querySelectorAll(".chip, .ghost-button, .cta-button").forEach((element)
   element.addEventListener("pointerleave", () => element.classList.remove("glow-pulse"));
 });
 
+renderSharedNavigation();
+renderHomeCards();
 initializePageTransitions();
 
 createParticles();
