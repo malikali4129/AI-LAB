@@ -42,6 +42,17 @@ This file gives a quick overview of the current tools (modules) in AIM LAB.
   - Loads roast lists directly from `modules/roastData.json` and `modules/englishRoastData.json`
   - Roast lines are managed in JSON file (not editable from module UI)
 
+## 6) Wheel Picker
+- Page: `wheel.html`
+- Purpose: Spins two customizable name wheels and shows the combined winner result.
+- Extra features:
+  - Two editable wheels with tab switching
+  - Spin all wheels at once
+  - Add/remove wheels
+  - Shuffle, sort, and customize wheel themes
+  - Winner modal with remove action
+  - Results history for recent spins
+
 ## Shared UX Features
 - Consistent header/menu on all module pages.
 - Smooth page transitions (fade-out on navigation, fade-in text on next page).

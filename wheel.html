@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wheel Picker | AIM LAB</title>
+  <meta name="description" content="Spin multiple name wheels, pick a winner, and manage wheel lists in a glassy AIM LAB interface." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <header class="topbar" data-reveal>
+      <div class="header-left">
+        <span class="module-icon">🎡</span>
+        <h1 class="module-title">Wheel Picker</h1>
+      </div>
+      <div class="header-right">
+        <nav class="header-shortcuts" aria-label="Quick modules">
+          <a href="index.html" class="shortcut-icon" title="Home">🏠</a>
+          <a href="birthday.html" class="shortcut-icon" title="Birthday">🎂</a>
+          <a href="download-speed.html" class="shortcut-icon" title="Download">⚡</a>
+          <a href="password-checker.html" class="shortcut-icon" title="Password">🔐</a>
+          <a href="gpa-calculator.html" class="shortcut-icon" title="GPA">🎓</a>
+          <a href="roaster.html" class="shortcut-icon" title="Roaster">🔥</a>
+          <a href="wheel.html" class="shortcut-icon" title="Wheel Picker">🎡</a>
+        </nav>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <nav class="menu-dropdown" id="menu-dropdown" data-reveal>
+      <a href="index.html" class="menu-item">🏠 Home</a>
+      <a href="birthday.html" class="menu-item">🎂 Birthday</a>
+      <a href="download-speed.html" class="menu-item">⚡ Download</a>
+      <a href="password-checker.html" class="menu-item">🔐 Password</a>
+      <a href="gpa-calculator.html" class="menu-item">🎓 GPA</a>
+      <a href="roaster.html" class="menu-item">🔥 Roaster</a>
+      <a href="wheel.html" class="menu-item">🎡 Wheel Picker</a>
+    </nav>
+
+    <main class="stage feature-page wheel-page">
+      <section class="feature-shell glass-card" data-reveal>
+        <div class="feature-copy">
+          <p class="status-line"><span class="status-dot"></span> Multi-wheel selection mode</p>
+          <h2>Spin two wheels and pick a winner</h2>
+          <p class="subtitle">Edit each wheel, spin them together, and remove winners after the result lands.</p>
+        </div>
+        <div id="wheel-module" class="module-root"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="results-modal wheel-results-modal" id="wheel-results-modal" role="dialog" aria-hidden="true">
+    <div class="modal-overlay"></div>
+    <div class="modal-content glass-card wheel-modal-content">
+      <button class="modal-close" id="wheel-modal-close" aria-label="Close results" type="button">×</button>
+      <div class="modal-header wheel-modal-header">
+        <h3>We have a winner!</h3>
+      </div>
+      <div id="wheel-modal-output" class="wheel-modal-output" aria-live="polite"></div>
+      <div class="wheel-modal-actions">
+        <button type="button" class="cta-button" id="wheel-modal-remove">Remove</button>
+        <button type="button" class="ghost-button" id="wheel-modal-close-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="modules/wheelPicker.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

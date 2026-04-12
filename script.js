@@ -5,6 +5,7 @@ const downloadSpeedModuleRoot = document.getElementById("download-speed-module")
 const passwordModuleRoot = document.getElementById("password-module");
 const gpaModuleRoot = document.getElementById("gpa-module");
 const roasterModuleRoot = document.getElementById("roaster-module");
+const wheelModuleRoot = document.getElementById("wheel-module");
 const menuBtn = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
 let revealItems = [];
@@ -56,6 +57,14 @@ const MODULE_REGISTRY = [
     menuTitle: "Roaster",
     homeTitle: "Roaster Module",
     homeDescription: "Generate funny roasts with intensity controls"
+  },
+  {
+    href: "wheel.html",
+    icon: "🎡",
+    shortTitle: "Wheel",
+    menuTitle: "Wheel Picker",
+    homeTitle: "Wheel Picker",
+    homeDescription: "Spin two name wheels and pick a winner"
   }
 ];
 
@@ -272,6 +281,9 @@ if (window.initGpaCalculator && gpaModuleRoot) {
 }
 if (window.initRoaster && roasterModuleRoot) {
   window.initRoaster(roasterModuleRoot);
+}
+if (window.initWheelPicker && wheelModuleRoot) {
+  window.initWheelPicker(wheelModuleRoot);
 }
 setupMobileMenu();
 setupPageSwitchTransitions();
