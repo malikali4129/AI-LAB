@@ -53,6 +53,19 @@ This file gives a quick overview of the current tools (modules) in AIM LAB.
   - Winner modal with remove action
   - Results history for recent spins
 
+## 7) Life Progress Tracker
+- Page: `life-progress-tracker.html`
+- Purpose: Tracks live progress across time-based processes with one-second refresh.
+- Included categories:
+  - Clock cycles: minute, hour, day, month, year
+  - Holidays / annual events: New Year, Ramzan, Eid al-Fitr, Eid al-Adha
+  - Moon phases: synodic cycle and next major phase
+  - Long-term events: decade, quarter-century, and Year 3000 checkpoint
+- Assumptions in V1:
+  - Uses local device timezone only
+  - Moon and lunar events use estimated cycle math (not exact astronomy APIs)
+  - Stable default dataset is embedded in module source
+
 ## Shared UX Features
 - Consistent header/menu on all module pages.
 - Smooth page transitions (fade-out on navigation, fade-in text on next page).

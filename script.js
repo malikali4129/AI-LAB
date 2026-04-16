@@ -6,6 +6,7 @@ const passwordModuleRoot = document.getElementById("password-module");
 const gpaModuleRoot = document.getElementById("gpa-module");
 const roasterModuleRoot = document.getElementById("roaster-module");
 const wheelModuleRoot = document.getElementById("wheel-module");
+const lifeProgressModuleRoot = document.getElementById("life-progress-module");
 const menuBtn = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
 let revealItems = [];
@@ -65,6 +66,14 @@ const MODULE_REGISTRY = [
     menuTitle: "Wheel Picker",
     homeTitle: "Wheel Picker",
     homeDescription: "Spin two name wheels and pick a winner"
+  },
+  {
+    href: "life-progress-tracker.html",
+    icon: "⏳",
+    shortTitle: "Tracker",
+    menuTitle: "Life Tracker",
+    homeTitle: "Life Progress Tracker",
+    homeDescription: "Track clock cycles, events, moon phases, and long-horizon milestones"
   }
 ];
 
@@ -284,6 +293,9 @@ if (window.initRoaster && roasterModuleRoot) {
 }
 if (window.initWheelPicker && wheelModuleRoot) {
   window.initWheelPicker(wheelModuleRoot);
+}
+if (window.initLifeProgressTracker && lifeProgressModuleRoot) {
+  window.initLifeProgressTracker(lifeProgressModuleRoot);
 }
 setupMobileMenu();
 setupPageSwitchTransitions();

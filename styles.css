@@ -731,6 +731,168 @@ body.page-transition-out .particles {
   margin-top: 22px;
 }
 
+.life-progress-shell {
+  display: grid;
+  gap: 18px;
+}
+
+.life-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.life-stat-card {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(95, 251, 255, 0.14);
+  background: linear-gradient(150deg, rgba(95, 251, 255, 0.07), rgba(157, 125, 255, 0.1));
+}
+
+.life-stat-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.life-stat-card strong {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text);
+}
+
+.life-stat-card span {
+  color: #d4dcfb;
+  font-size: 0.88rem;
+}
+
+.life-groups {
+  display: grid;
+  gap: 14px;
+}
+
+.life-group-card {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(11, 15, 30, 0.86), rgba(6, 8, 17, 0.92));
+}
+
+.life-group-head {
+  display: grid;
+  gap: 6px;
+}
+
+.life-group-head h3 {
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.04rem;
+}
+
+.life-group-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.life-group-rows {
+  display: grid;
+  gap: 10px;
+}
+
+.life-process-row {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.life-process-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.life-process-label {
+  margin: 0;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.life-process-remaining {
+  color: #e5ebff;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.82rem;
+  text-align: right;
+}
+
+.life-process-target {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.life-progress-track {
+  height: 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.life-progress-fill {
+  position: relative;
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #6be8ff, #7ea5ff);
+  transition: width 520ms linear;
+  animation: trackerBreathe 2.8s ease-in-out infinite;
+}
+
+.life-progress-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, 0.3) 50%, transparent 80%);
+  animation: trackerSheen 2.2s linear infinite;
+}
+
+.life-process-row[data-tone="clock"] .life-progress-fill {
+  background: linear-gradient(90deg, #63f7fb, #6ca9ff);
+}
+
+.life-process-row[data-tone="solar"] .life-progress-fill {
+  background: linear-gradient(90deg, #fbcf5f, #ff9467);
+}
+
+.life-process-row[data-tone="lunar"] .life-progress-fill,
+.life-process-row[data-tone="moon"] .life-progress-fill {
+  background: linear-gradient(90deg, #9d7dff, #69d6ff);
+}
+
+.life-process-row[data-tone="horizon"] .life-progress-fill {
+  background: linear-gradient(90deg, #74f7b3, #5ffbff);
+}
+
+.life-footnote {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
 .wheel-app-shell {
   display: grid;
   gap: 18px;
@@ -1879,7 +2041,28 @@ body.page-transition-out .particles {
   100% { transform: translateY(0); opacity: 0.3; }
 }
 
+@keyframes trackerSheen {
+  from {
+    transform: translateX(-130%);
+  }
+  to {
+    transform: translateX(130%);
+  }
+}
+
+@keyframes trackerBreathe {
+  50% {
+    filter: saturate(1.2) brightness(1.05);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .life-progress-fill,
+  .life-progress-fill::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
   .page-loader,
   .app-shell,
   [data-reveal],
@@ -1908,6 +2091,10 @@ body.page-transition-out .particles {
 
   .wheel-app-shell {
     width: 100%;
+  }
+
+  .life-hero-grid {
+    grid-template-columns: 1fr;
   }
 
   .topbar {
@@ -2193,6 +2380,20 @@ body.page-transition-out .particles {
 
   .wheel-panel {
     padding: 14px;
+  }
+
+  .life-group-card,
+  .life-stat-card {
+    padding: 14px;
+  }
+
+  .life-process-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .life-process-remaining {
+    text-align: left;
   }
 
   .wheel-names-input {
