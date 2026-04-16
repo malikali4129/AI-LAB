@@ -8,6 +8,7 @@ const roasterModuleRoot = document.getElementById("roaster-module");
 const wheelModuleRoot = document.getElementById("wheel-module");
 const lifeProgressModuleRoot = document.getElementById("life-progress-module");
 const aboutModuleRoot = document.getElementById("about-module");
+const lifeStatsModuleRoot = document.getElementById("life-stats-module");
 const menuBtn = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
 let revealItems = [];
@@ -83,6 +84,14 @@ const MODULE_REGISTRY = [
     menuTitle: "About Me",
     homeTitle: "About Me",
     homeDescription: "Sample bio section with a functional contact form"
+  },
+  {
+    href: "life-stats.html",
+    icon: "🧬",
+    shortTitle: "Stats",
+    menuTitle: "Life Stats",
+    homeTitle: "Life Stats",
+    homeDescription: "Scroll through live stats calculated from your birth date"
   }
 ];
 
@@ -308,6 +317,9 @@ if (window.initLifeProgressTracker && lifeProgressModuleRoot) {
 }
 if (window.initAboutMe && aboutModuleRoot) {
   window.initAboutMe(aboutModuleRoot);
+}
+if (window.initLifeStats && lifeStatsModuleRoot) {
+  window.initLifeStats(lifeStatsModuleRoot);
 }
 setupMobileMenu();
 setupPageSwitchTransitions();

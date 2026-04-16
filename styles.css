@@ -853,6 +853,250 @@ body.page-transition-out .particles {
   color: var(--muted);
 }
 
+.life-stats-shell {
+  display: grid;
+  gap: 16px;
+}
+
+.life-stats-gate {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 32px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.05), rgba(95, 251, 255, 0.05));
+  text-align: center;
+  display: grid;
+  gap: 12px;
+}
+
+.life-stats-avatar {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 4.6rem);
+}
+
+.life-stats-gate h3 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.life-stats-gate-copy {
+  margin: 0;
+  font-weight: 700;
+  color: #f4f7ff;
+}
+
+.life-stats-form {
+  display: grid;
+  gap: 12px;
+}
+
+.life-stats-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.life-stats-go {
+  min-height: 54px;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.life-stats-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.life-stats-story {
+  position: relative;
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 18px;
+}
+
+.life-stats-progress {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  padding-top: 10px;
+}
+
+.life-stats-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(95, 251, 255, 0.38);
+  background: rgba(95, 251, 255, 0.1);
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.life-stats-dot.is-active {
+  transform: scale(1.2);
+  background: var(--cyan);
+  box-shadow: 0 0 18px rgba(95, 251, 255, 0.7);
+}
+
+.life-stats-sections {
+  display: grid;
+  gap: 26px;
+}
+
+.life-stats-section {
+  min-height: clamp(420px, 78vh, 720px);
+  border-radius: 26px;
+  padding: clamp(18px, 3vw, 34px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(165deg, rgba(11, 14, 29, 0.9), rgba(5, 8, 18, 0.84));
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 28px;
+  opacity: 0.58;
+  transform: scale(0.98);
+  transition: opacity 260ms ease, transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+}
+
+.life-stats-section.is-active {
+  opacity: 1;
+  transform: scale(1);
+  border-color: rgba(95, 251, 255, 0.34);
+  box-shadow: 0 10px 45px rgba(95, 251, 255, 0.16);
+}
+
+.life-stats-visual {
+  min-height: 180px;
+  width: min(540px, 100%);
+  display: grid;
+  place-items: center;
+}
+
+.life-stats-text {
+  width: min(760px, 100%);
+  display: grid;
+  gap: 10px;
+  text-align: center;
+}
+
+.life-stats-statement {
+  margin: 0;
+  font-size: clamp(1.08rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.38;
+  color: #f5f7ff;
+}
+
+.life-stats-meta {
+  margin: 0;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.life-stats-calendar-card {
+  width: min(240px, 80%);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.life-stats-calendar-card header {
+  background: #ee5656;
+  padding: 8px 10px;
+  font-weight: 800;
+  font-size: 1.6rem;
+}
+
+.life-stats-calendar-day {
+  padding: 8px 0 2px;
+  font-size: 4rem;
+  font-family: "Orbitron", sans-serif;
+  line-height: 1;
+  color: #f9fcff;
+}
+
+.life-stats-calendar-card footer {
+  padding: 0 10px 10px;
+  font-weight: 600;
+}
+
+.life-stats-blood-wrap,
+.life-stats-pulse-wrap {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.life-stats-blood-wrap span {
+  width: 58px;
+  height: 36px;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, #ca4b4b 36%, #ef6161 37%, #ef6161 100%);
+  box-shadow: 0 0 18px rgba(239, 97, 97, 0.35);
+  animation: lifeStatsFloat 2.8s ease-in-out infinite;
+}
+
+.life-stats-blood-wrap span:nth-child(even) {
+  animation-delay: 0.35s;
+}
+
+.life-stats-pulse-wrap span {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--cyan);
+  box-shadow: 0 0 14px rgba(95, 251, 255, 0.9);
+  animation: lifeStatsPulse 1.4s ease-in-out infinite;
+}
+
+.life-stats-pulse-wrap span:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.life-stats-pulse-wrap span:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+.life-stats-icon-wrap {
+  font-size: clamp(2.5rem, 8vw, 5.4rem);
+  line-height: 1;
+  filter: drop-shadow(0 0 20px rgba(95, 251, 255, 0.25));
+  animation: lifeStatsFloat 2.8s ease-in-out infinite;
+}
+
+@keyframes lifeStatsPulse {
+  0%,
+  100% {
+    transform: scale(0.82);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scale(1.22);
+    opacity: 1;
+  }
+}
+
+@keyframes lifeStatsFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .life-progress-shell {
   display: grid;
   gap: 18px;
@@ -2237,6 +2481,12 @@ body.page-transition-out .particles {
     transition: none !important;
   }
 
+  .life-stats-icon-wrap,
+  .life-stats-blood-wrap span,
+  .life-stats-pulse-wrap span {
+    animation: none !important;
+  }
+
   .page-loader,
   .app-shell,
   [data-reveal],
@@ -2253,6 +2503,23 @@ body.page-transition-out .particles {
   .hero,
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  .life-stats-story {
+    grid-template-columns: 1fr;
+  }
+
+  .life-stats-progress {
+    position: static;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+    overflow-x: auto;
+    justify-items: start;
+    padding: 0 2px;
+  }
+
+  .life-stats-dot {
+    min-width: 12px;
   }
 
   .birthday-calculator {
@@ -2289,6 +2556,32 @@ body.page-transition-out .particles {
   .app-shell {
     width: min(100% - 18px, 1200px);
     padding-bottom: 28px;
+  }
+
+  .life-stats-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .life-stats-section {
+    min-height: 70vh;
+    border-radius: 20px;
+    gap: 18px;
+  }
+
+  .life-stats-visual {
+    min-height: 120px;
+  }
+
+  .life-stats-calendar-card {
+    width: min(220px, 96%);
+  }
+
+  .life-stats-calendar-card header {
+    font-size: 1.2rem;
+  }
+
+  .life-stats-calendar-day {
+    font-size: 2.9rem;
   }
 
   body.menu-open {

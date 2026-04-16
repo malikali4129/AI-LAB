@@ -66,6 +66,24 @@ This file gives a quick overview of the current tools (modules) in AIM LAB.
   - Moon and lunar events use estimated cycle math (not exact astronomy APIs)
   - Stable default dataset is embedded in module source
 
+## 8) Life Stats
+- Page: `life-stats.html`
+- Purpose: Converts your birth date into a scroll-based real-time life statistics story.
+- Flow:
+  - First screen asks for month/day/year of birth
+  - After submit, each scroll section shows one statement with one matching visual
+- Included stats in V1:
+  - Days and seconds alive
+  - Heartbeats and breaths (modeled estimates)
+  - Red blood cell production estimate
+  - Sleep hours, blinks, steps, and water intake estimates
+  - Weekend days, moon cycles, seasons, birthdays
+  - Earth orbits lived and live next-birthday countdown
+- Assumptions in V1:
+  - Values are educational approximations, not medical measurements
+  - DOB is validated per session and not stored in localStorage
+  - Fast-changing stats update every second; slower stats refresh periodically
+
 ## Shared UX Features
 - Consistent header/menu on all module pages.
 - Smooth page transitions (fade-out on navigation, fade-in text on next page).
