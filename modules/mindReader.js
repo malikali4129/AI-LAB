@@ -1,7 +1,7 @@
 const IP_GEO_API_URL = "https://api.ipgeolocation.io/ipgeo";
 const IP_GEO_API_KEY = "c3813f2e823345888d6d03a9b83065e9";
-const KEYBOARD_AUDIO_PATH = "assets/audio/ip-lookup/keyboard.mp3";
-const BGM_AUDIO_PATH = "assets/audio/ip-lookup/oracle-bgm.mp3";
+const KEYBOARD_AUDIO_PATH = "assets/audio/mind-reader/keyboard.mp3";
+const BGM_AUDIO_PATH = "assets/audio/mind-reader/oracle-bgm.mp3";
 
 function normalizeValue(value, fallback = "N/A") {
   if (value === null || value === undefined) {
@@ -56,7 +56,7 @@ async function fetchGeoData() {
   return data;
 }
 
-function initIpLookup(root) {
+function initMindReader(root) {
   if (!root) return;
 
   root.innerHTML = `
@@ -308,14 +308,15 @@ function initIpLookup(root) {
   });
 }
 
-window.initIpLookup = initIpLookup;
+window.initMindReader = initMindReader;
+window.initIpLookup = initMindReader;
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("ip-lookup-module");
-    initIpLookup(root);
+    const root = document.getElementById("mind-reader-module");
+    initMindReader(root);
   });
 } else {
-  const root = document.getElementById("ip-lookup-module");
-  initIpLookup(root);
+  const root = document.getElementById("mind-reader-module");
+  initMindReader(root);
 }

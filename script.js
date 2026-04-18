@@ -10,7 +10,7 @@ const lifeProgressModuleRoot = document.getElementById("life-progress-module");
 const aboutModuleRoot = document.getElementById("about-module");
 const lifeStatsModuleRoot = document.getElementById("life-stats-module");
 const guessNumberModuleRoot = document.getElementById("guess-number-module");
-const ipLookupModuleRoot = document.getElementById("ip-lookup-module");
+const mindReaderModuleRoot = document.getElementById("mind-reader-module");
 const menuBtn = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
 let revealItems = [];
@@ -96,21 +96,21 @@ const MODULE_REGISTRY = [
     homeDescription: "Scroll through live stats calculated from your birth date"
   },
   {
-    href: "ip-lookup.html",
+    href: "mind-reader.html",
     icon: "🌐",
-    shortTitle: "IP Lookup",
-    menuTitle: "IP Lookup",
-    homeTitle: "IP Geolocation Lookup",
-    homeDescription: "Fetch IP location, ISP, timezone, and network details"
-  },
-  {
-    href: "about.html",
-    icon: "👤",
-    shortTitle: "About",
-    menuTitle: "About Me",
-    homeTitle: "About Me",
-    homeDescription: "Sample bio section with a functional contact form"
+    shortTitle: "Mind Reader",
+    menuTitle: "Mind Reader",
+    homeTitle: "Mind Reader",
+    homeDescription: "Cinematic oracle story with live geolocation reveal"
   }
+  // {
+  //   href: "about.html",
+  //   icon: "👤",
+  //   shortTitle: "About",
+  //   menuTitle: "About Me",
+  //   homeTitle: "About Me",
+  //   homeDescription: "Sample bio section with a functional contact form"
+  // }
 ];
 
 const typingLines = [
@@ -342,8 +342,8 @@ if (window.initLifeStats && lifeStatsModuleRoot) {
 if (window.initGuessNumberGame && guessNumberModuleRoot) {
   window.initGuessNumberGame(guessNumberModuleRoot);
 }
-if (window.initIpLookup && ipLookupModuleRoot) {
-  window.initIpLookup(ipLookupModuleRoot);
+if (window.initMindReader && mindReaderModuleRoot) {
+  window.initMindReader(mindReaderModuleRoot);
 }
 setupMobileMenu();
 setupPageSwitchTransitions();
