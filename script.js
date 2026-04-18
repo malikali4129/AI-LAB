@@ -79,30 +79,30 @@ const MODULE_REGISTRY = [
   //   homeTitle: "Guess Number Game",
   //   homeDescription: "Play your classic school C game in web module style"
   // },
-  // {
-  //   href: "life-progress-tracker.html",
-  //   icon: "⏳",
-  //   shortTitle: "Tracker",
-  //   menuTitle: "Life Tracker",
-  //   homeTitle: "Life Progress Tracker",
-  //   homeDescription: "Track clock cycles, events, moon phases, and long-horizon milestones"
-  // },
-  // {
-  //   href: "life-stats.html",
-  //   icon: "🧬",
-  //   shortTitle: "Stats",
-  //   menuTitle: "Life Stats",
-  //   homeTitle: "Life Stats",
-  //   homeDescription: "Scroll through live stats calculated from your birth date"
-  // },
-  // {
-  //   href: "mind-reader.html",
-  //   icon: "🌐",
-  //   shortTitle: "Mind Reader",
-  //   menuTitle: "Mind Reader",
-  //   homeTitle: "Mind Reader",
-  //   homeDescription: "Cinematic oracle story with live geolocation reveal"
-  // },
+  {
+    href: "life-progress-tracker.html",
+    icon: "⏳",
+    shortTitle: "Tracker",
+    menuTitle: "Life Tracker",
+    homeTitle: "Life Progress Tracker",
+    homeDescription: "Track clock cycles, events, moon phases, and long-horizon milestones"
+  },
+  {
+    href: "life-stats.html",
+    icon: "🧬",
+    shortTitle: "Stats",
+    menuTitle: "Life Stats",
+    homeTitle: "Life Stats",
+    homeDescription: "Scroll through live stats calculated from your birth date"
+  },
+  {
+    href: "mind-reader.html",
+    icon: "🌐",
+    shortTitle: "Mind Reader",
+    menuTitle: "Mind Reader",
+    homeTitle: "Mind Reader",
+    homeDescription: "Cinematic oracle story with live geolocation reveal"
+  },
   {
     href: "about.html",
     icon: "👤",
