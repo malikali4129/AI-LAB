@@ -39,7 +39,7 @@ This file gives a quick overview of the current tools (modules) in AIM LAB.
   - Share roast button
   - Copy roast button
   - Sound effects during generate/type animation
-  - Loads roast lists directly from `data/roastData.json` and `data/englishRoastData.json`
+  - Loads roast lists directly from `modules/roastData.json` and `modules/englishRoastData.json`
   - Roast lines are managed in JSON file (not editable from module UI)
 
 ## 6) Wheel Picker
@@ -93,15 +93,6 @@ This file gives a quick overview of the current tools (modules) in AIM LAB.
   - Higher/lower guidance after each attempt
   - Attempt counter with win state
   - Round history log and quick new-game reset
-
-## 10) Projects Directory
-- Page: `projects.html`
-- Purpose: Displays a structured table of AIM LAB projects and direct links to open each one.
-- Included behavior:
-  - Project name, category, summary, and action link columns
-  - One-click navigation to each module page
-  - Horizontal scroll support for smaller screens
-  - Data source: `data/referenceProjects.json` (edit this file to add/update entries)
 
 ## Shared UX Features
 - Consistent header/menu on all module pages.
