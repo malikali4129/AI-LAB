@@ -268,4 +268,54 @@ function initIpLookup(root) {
       { text: `I CAN HEAR YOUR SIGNAL FROM ${country.toUpperCase()}.`, className: "is-reveal", hold: 2400 },
       { text: `YOUR NETWORK SPEAKS IN SILENCE: ${network.toUpperCase()}.`, className: "is-quiet", hold: 2500 },
       { text: `YOU ARE FROM... ${customLocation} >`, className: "is-location", speed: 70, hold: 3200, doFlash: true },
-      { text: `REGI
+      { text: `REGION: ${region.toUpperCase()}`, className: "is-quiet", hold: 1800 },
+      { text: `VISIT TIME: ${visitTime} | DEVICE: ${deviceType.toUpperCase()}`, className: "is-quiet", speed: 48, hold: 2200 },
+      { text: "NOT HACKING. JUST DATA, FEAR, AND TIMING.", className: "is-reveal", hold: 2400 },
+      { text: "CONNECTION WILL TERMINATE NOW.", className: "is-end", hold: 1800, doFlash: true },
+      { text: "[ SIGNAL LOST ]", className: "is-end", hold: 1200 }
+    ];
+
+    for (const scene of scenes) {
+      await typeSceneLine(scene, runId);
+    }
+
+    if (runId === activeRun) {
+      stopTypingAudio();
+      cinematic.classList.add("is-ending");
+      showHomePrompt();
+    }
+  }
+
+  async function startExperience() {
+    if (started) return;
+    started = true;
+    enterButton.disabled = true;
+    enterLayer.setAttribute("aria-hidden", "true");
+    tryEnableSound();
+    await playStory();
+  }
+
+  pauseButton.addEventListener("click", () => {
+    setPaused(!isPaused);
+  });
+
+  enterButton.addEventListener("click", startExperience);
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      startExperience();
+    }
+  });
+}
+
+window.initIpLookup = initIpLookup;
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    const root = document.getElementById("ip-lookup-module");
+    initIpLookup(root);
+  });
+} else {
+  const root = document.getElementById("ip-lookup-module");
+  initIpLookup(root);
+}

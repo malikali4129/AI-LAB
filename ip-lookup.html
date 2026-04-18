@@ -370,4 +370,65 @@
     @keyframes enterGlitchA {
       0%, 88%, 100% { clip-path: inset(0 0 0 0); }
       89% { clip-path: inset(0 0 78% 0); }
-      92% { clip-path: inset(30% 0 22% 0);
+      92% { clip-path: inset(30% 0 22% 0); }
+      95% { clip-path: inset(72% 0 0 0); }
+    }
+
+    @keyframes enterGlitchB {
+      0%, 85%, 100% { clip-path: inset(0 0 0 0); }
+      86% { clip-path: inset(10% 0 62% 0); }
+      90% { clip-path: inset(52% 0 15% 0); }
+      94% { clip-path: inset(76% 0 0 0); }
+    }
+
+    @media (max-width: 700px) {
+      .oracle-cinematic {
+        padding: 16px;
+      }
+
+      .oracle-line {
+        line-height: 1.17;
+      }
+
+      .oracle-enter-btn {
+        min-width: 92vw;
+        min-height: clamp(74px, 20vw, 112px);
+        font-size: clamp(2rem, 11vw, 3.6rem);
+      }
+
+      .oracle-entry-tip {
+        font-size: clamp(1rem, 4.8vw, 1.35rem);
+      }
+
+      .oracle-pause-btn {
+        min-height: 38px;
+        min-width: 94px;
+        font-size: clamp(0.95rem, 4vw, 1.2rem);
+        top: 10px;
+        right: 10px;
+      }
+    }
+
+    @media (min-width: 1300px) {
+      .oracle-cinematic {
+        padding: 6vh 9vw;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .oracle-noise,
+      .oracle-scanlines,
+      .oracle-enter-btn::before,
+      .oracle-enter-btn::after,
+      body::after {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="ip-lookup-module"></main>
+
+  <script src="modules/ipLookup.js"></script>
+</body>
+</html>
