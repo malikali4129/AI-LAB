@@ -90,6 +90,7 @@ function initMindReader(root) {
   let typingAudioActive = false;
   let typingInProgress = false;
   let isPaused = false;
+  let audioPreloadDone = false;
 
   function tryEnableSound() {
     if (allowSound) return;
@@ -102,6 +103,30 @@ function initMindReader(root) {
       // Browser blocked autoplay until user gesture.
     });
   }
+
+  async function preloadAudioElement(element, sourcePath) {
+    try {
+      const response = await fetch(sourcePath, { cache: "force-cache" });
+      if (!response.ok) {
+        element.load();
+        return;
+      }
+
+      const audioBlob = await response.blob();
+      const objectUrl = URL.createObjectURL(audioBlob);
+      element.src = objectUrl;
+      element.load();
+    } catch (error) {
+      element.load();
+    }
+  }
+
+  const preloadPromise = Promise.all([
+    preloadAudioElement(keyboardAudio, KEYBOARD_AUDIO_PATH),
+    preloadAudioElement(bgmAudio, BGM_AUDIO_PATH)
+  ]).finally(() => {
+    audioPreloadDone = true;
+  });
 
   window.addEventListener("pointerdown", tryEnableSound, { once: true });
 
@@ -291,6 +316,11 @@ function initMindReader(root) {
     started = true;
     enterButton.disabled = true;
     enterLayer.setAttribute("aria-hidden", "true");
+
+    if (!audioPreloadDone) {
+      await preloadPromise;
+    }
+
     tryEnableSound();
     await playStory();
   }

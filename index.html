@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AIM LAB</title>
   <meta name="description" content="AIM LAB - All In One Multi-purpose Modules" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -100,6 +103,63 @@
     </main>
   </div>
 
-    <script src="script.js"></script>
+  <script>
+    (function bootstrapApp() {
+      const FALLBACK_VERSION = "v2.0.1";
+      const VERSION_FILE = "app-version.json";
+
+      function runWithVersion(appVersion) {
+        const APP_VERSION = appVersion || FALLBACK_VERSION;
+        const VERSION_KEY = "aimlab-app-version";
+        const RELOAD_FLAG = "aimlab-version-reload";
+
+        const currentUrl = new URL(window.location.href);
+        const seenVersion = localStorage.getItem(VERSION_KEY);
+        const hasVersionChanged = seenVersion !== APP_VERSION;
+
+        if (hasVersionChanged) {
+          localStorage.setItem(VERSION_KEY, APP_VERSION);
+
+          if ("caches" in window) {
+            caches.keys().then((keys) => Promise.all(keys.map((key) => caches.delete(key))));
+          }
+
+          if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.getRegistrations().then((regs) => {
+              regs.forEach((reg) => reg.unregister());
+            });
+          }
+
+          const hasReloadedForVersion = sessionStorage.getItem(RELOAD_FLAG) === APP_VERSION;
+          if (!hasReloadedForVersion) {
+            sessionStorage.setItem(RELOAD_FLAG, APP_VERSION);
+            currentUrl.searchParams.set("v", APP_VERSION);
+            window.location.replace(currentUrl.toString());
+            return;
+          }
+        }
+
+        const appScript = document.createElement("script");
+        appScript.src = `script.js?v=${encodeURIComponent(APP_VERSION)}`;
+        appScript.defer = true;
+        document.body.appendChild(appScript);
+      }
+
+      fetch(`${VERSION_FILE}?t=${Date.now()}`, { cache: "no-store" })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Version file fetch failed");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const remoteVersion = data && typeof data.version === "string" ? data.version.trim() : "";
+          runWithVersion(remoteVersion || FALLBACK_VERSION);
+        })
+        .catch(() => {
+          runWithVersion(FALLBACK_VERSION);
+        });
+    })();
+  </script>
 </body>
 </html>
