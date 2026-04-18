@@ -1,6 +1,6 @@
 const ROAST_DATA_FILES = {
-  hinglish: "data/roastData.json",
-  english: "data/englishRoastData.json"
+  hinglish: "modules/roastData.json",
+  english: "modules/englishRoastData.json"
 };
 
 function normalizeRoastData(data) {
@@ -219,7 +219,7 @@ function initRoaster(root) {
     const name = nameInput.value.trim() || "Legend";
     const intensity = pickIntensity(Number(intensityInput.value));
     const pool = roastData[intensity] || roastData.medium;
-    const line = pool[Math.floor(Math.random() * pool.length)] || "{{name}}, roast list is empty. Please check data/roastData.json.";
+    const line = pool[Math.floor(Math.random() * pool.length)] || "{{name}}, roast list is empty. Please check roastData.json.";
     return formatRoast(line, name);
   }
 
@@ -229,7 +229,7 @@ function initRoaster(root) {
     }
 
     if (roastData.soft.length + roastData.medium.length + roastData.savage.length === 0) {
-      output.innerHTML = '<span class="speed-warn">Roast list is empty. Check data/roastData.json.</span>';
+      output.innerHTML = '<span class="speed-warn">Roast list is empty. Check roastData.json.</span>';
       return;
     }
 
