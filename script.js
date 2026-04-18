@@ -111,13 +111,6 @@ const MODULE_REGISTRY = [
     menuTitle: "About Me",
     homeTitle: "About Me",
     homeDescription: "Sample bio section with a functional contact form"
-  },
-  {
-    href: "neonmaze.pages.dev",
-    icon: "🫦",
-    shortTitle: "lip short",
-    menuTitle: "lip meny",
-    homeDescription: "testtttttttttttttttttttttttttttttttttttttttttttttttttt"
   }
 ];
 
