@@ -1,5 +1,0 @@
-Place audio files for the Oracle page in this folder.
-
-Required files:
-- keyboard.mp3
-- oracle-bgm.mp3
