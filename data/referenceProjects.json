@@ -1,0 +1,20 @@
+{
+  "projects": [
+    {
+      "name": "Maze Game",
+      "category": "Reference",
+      "summary": "A Maze Game built with JavaScript, HTML, and CSS. It features a player navigating through a maze to reach the exit. The game includes basic movement controls and a simple maze layout.",
+      "href": "https://neonmaze.pages.dev",
+      "linkLabel": "Play Now",
+      "openInNewTab": true
+    },
+    {
+      "name": "Tic Tac Toe",
+      "category": "Reference",
+      "summary": "A simple Tic Tac Toe game built with JavaScript, HTML, and CSS.",
+      "href": "https://ahmedgame.pages.dev",
+      "linkLabel": "Play Now",
+      "openInNewTab": true
+    }
+  ]
+}

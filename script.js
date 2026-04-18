@@ -11,6 +11,7 @@ const aboutModuleRoot = document.getElementById("about-module");
 const lifeStatsModuleRoot = document.getElementById("life-stats-module");
 const guessNumberModuleRoot = document.getElementById("guess-number-module");
 const mindReaderModuleRoot = document.getElementById("mind-reader-module");
+const projectsModuleRoot = document.getElementById("projects-module");
 const moduleVersion = document.getElementById("module-version");
 const menuBtn = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
@@ -105,6 +106,14 @@ const MODULE_REGISTRY = [
     homeDescription: "Cinematic oracle story with live geolocation reveal"
   },
   {
+    href: "projects.html",
+    icon: "🗂️",
+    shortTitle: "Projects",
+    menuTitle: "Projects",
+    homeTitle: "Projects Directory",
+    homeDescription: "View all AIM LAB projects and open each module from one table"
+  },
+  {
     href: "about.html",
     icon: "👤",
     shortTitle: "About",
@@ -140,9 +149,9 @@ async function loadModuleVersion() {
   }
 
   try {
-    const response = await fetch(`version.json?noCache=${Date.now()}`);
+    const response = await fetch(`data/version.json?noCache=${Date.now()}`);
     if (!response.ok) {
-      throw new Error(`Failed to load version.json: ${response.status}`);
+      throw new Error(`Failed to load data/version.json: ${response.status}`);
     }
 
     const versionData = await response.json();
@@ -368,6 +377,9 @@ if (window.initGuessNumberGame && guessNumberModuleRoot) {
 }
 if (window.initMindReader && mindReaderModuleRoot) {
   window.initMindReader(mindReaderModuleRoot);
+}
+if (window.initProjectsTable && projectsModuleRoot) {
+  window.initProjectsTable(projectsModuleRoot);
 }
 setupMobileMenu();
 setupPageSwitchTransitions();
