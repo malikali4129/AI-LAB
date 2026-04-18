@@ -429,6 +429,13 @@
 <body>
   <main id="mind-reader-module"></main>
 
-  <script src="modules/mindReader.js"></script>
+  <script>
+    (function loadFreshMindReaderScript() {
+      const moduleScript = document.createElement("script");
+      moduleScript.src = `modules/mindReader.js?noCache=${Date.now()}`;
+      moduleScript.defer = true;
+      document.body.appendChild(moduleScript);
+    })();
+  </script>
 </body>
 </html>

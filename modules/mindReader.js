@@ -90,7 +90,6 @@ function initMindReader(root) {
   let typingAudioActive = false;
   let typingInProgress = false;
   let isPaused = false;
-  let audioPreloadDone = false;
 
   function tryEnableSound() {
     if (allowSound) return;
@@ -121,11 +120,11 @@ function initMindReader(root) {
     }
   }
 
-  const preloadPromise = Promise.all([
+  Promise.all([
     preloadAudioElement(keyboardAudio, KEYBOARD_AUDIO_PATH),
     preloadAudioElement(bgmAudio, BGM_AUDIO_PATH)
-  ]).finally(() => {
-    audioPreloadDone = true;
+  ]).catch(() => {
+    // Keep story start independent from preload failures.
   });
 
   window.addEventListener("pointerdown", tryEnableSound, { once: true });
@@ -317,10 +316,6 @@ function initMindReader(root) {
     enterButton.disabled = true;
     enterLayer.setAttribute("aria-hidden", "true");
 
-    if (!audioPreloadDone) {
-      await preloadPromise;
-    }
-
     tryEnableSound();
     await playStory();
   }
@@ -330,6 +325,11 @@ function initMindReader(root) {
   });
 
   enterButton.addEventListener("click", startExperience);
+  enterLayer.addEventListener("click", (event) => {
+    if (event.target === enterLayer) {
+      startExperience();
+    }
+  });
 
   window.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
