@@ -1,5 +1,6 @@
 const IP_GEO_API_URL = "https://api.ipgeolocation.io/ipgeo";
 const IP_GEO_API_KEY = "c3813f2e823345888d6d03a9b83065e9";
+const KEYBOARD_AUDIO_PATH = "assets/audio/mind-reader/keyboard.mp3";
 
 function normalizeValue(value, fallback = "N/A") {
   if (value === null || value === undefined) {
@@ -68,6 +69,7 @@ function initMindReader(root) {
         <p class="oracle-entry-tip">PRESS ENTER TO BEGIN TRANSMISSION</p>
       </div>
       <div class="oracle-stage" id="oracle-stage" aria-live="polite" aria-atomic="false"></div>
+      <audio id="oracle-keyboard-audio" preload="auto" src="${KEYBOARD_AUDIO_PATH}"></audio>
     </section>
   `;
 
@@ -77,10 +79,30 @@ function initMindReader(root) {
   const pauseButton = root.querySelector("#oracle-pause-btn");
   const enterLayer = root.querySelector("#oracle-entry");
   const enterButton = root.querySelector("#oracle-enter-btn");
+  const keyboardAudio = root.querySelector("#oracle-keyboard-audio");
 
   let activeRun = 0;
   let started = false;
   let isPaused = false;
+  let typingInProgress = false;
+  let typingAudioActive = false;
+
+  function startTypingAudio() {
+    if (typingAudioActive || isPaused) return;
+    typingAudioActive = true;
+    keyboardAudio.loop = true;
+    keyboardAudio.currentTime = 0;
+    keyboardAudio.play().catch(() => {
+      // Playback can fail before first user interaction.
+    });
+  }
+
+  function stopTypingAudio() {
+    if (!typingAudioActive) return;
+    typingAudioActive = false;
+    keyboardAudio.pause();
+    keyboardAudio.currentTime = 0;
+  }
 
   function flash() {
     flashLayer.classList.remove("is-active");
@@ -131,6 +153,15 @@ function initMindReader(root) {
     cinematic.classList.toggle("is-paused", isPaused);
     pauseButton.textContent = isPaused ? "RESUME" : "PAUSE";
     pauseButton.setAttribute("aria-pressed", isPaused ? "true" : "false");
+
+    if (isPaused) {
+      stopTypingAudio();
+      return;
+    }
+
+    if (typingInProgress) {
+      startTypingAudio();
+    }
   }
 
   async function typeSceneLine({ text, className = "", speed = 56, hold = 2200, doFlash = false }, runId) {
@@ -141,13 +172,20 @@ function initMindReader(root) {
       flash();
     }
 
+    typingInProgress = true;
+    startTypingAudio();
+
     for (const char of text) {
       if (runId !== activeRun) {
+        typingInProgress = false;
+        stopTypingAudio();
         return;
       }
 
       await waitWhilePaused(runId);
       if (runId !== activeRun) {
+        typingInProgress = false;
+        stopTypingAudio();
         return;
       }
 
@@ -155,6 +193,8 @@ function initMindReader(root) {
       await wait(speed + Math.random() * 28);
     }
 
+    typingInProgress = false;
+    stopTypingAudio();
     cursor.remove();
 
     let held = 0;
@@ -225,6 +265,15 @@ function initMindReader(root) {
     started = true;
     enterButton.disabled = true;
     enterLayer.setAttribute("aria-hidden", "true");
+
+    // Prime audio on first user action for immediate typing playback.
+    keyboardAudio.play().then(() => {
+      keyboardAudio.pause();
+      keyboardAudio.currentTime = 0;
+    }).catch(() => {
+      // If blocked, typing audio will retry on next user interaction.
+    });
+
     await playStory();
   }
 
