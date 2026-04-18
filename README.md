@@ -39,7 +39,7 @@ This file gives a quick overview of the current tools (modules) in AIM LAB.
   - Share roast button
   - Copy roast button
   - Sound effects during generate/type animation
-  - Loads roast lists directly from `data/roastData.json` and `data/englishRoastData.json`
+  - Loads roast lists directly from `modules/roastData.json` and `modules/englishRoastData.json`
   - Roast lines are managed in JSON file (not editable from module UI)
 
 ## 6) Wheel Picker

@@ -140,9 +140,9 @@ async function loadModuleVersion() {
   }
 
   try {
-    const response = await fetch(`data/version.json?noCache=${Date.now()}`);
+    const response = await fetch(`version.json?noCache=${Date.now()}`);
     if (!response.ok) {
-      throw new Error(`Failed to load data/version.json: ${response.status}`);
+      throw new Error(`Failed to load version.json: ${response.status}`);
     }
 
     const versionData = await response.json();
