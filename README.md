@@ -98,13 +98,23 @@ This file gives a quick overview of the current tools (modules) in AIM LAB.
 - Page: `websites.html`
 - Purpose: Shows a searchable and filterable directory of useful websites.
 - Data source:
-  - Loads from `data/websites.json`
+  - Primary editable source: `data/websites-source.txt`
   - Expected fields per item: `name`, `description`, `link`, `category`
 - Included behavior:
   - Keyword search across name, description, and category
   - Category dropdown filter
   - Result count and no-results state
   - External link button for each website card
+
+### Websites Text Workflow
+- Edit `data/websites-source.txt` for easy updates.
+- Keep one website per block and separate blocks with `---`.
+- Inside each block, use:
+  - `name: ...`
+  - `description: ...`
+  - `link: ...`
+  - `category: ...`
+- Save the file and refresh `websites.html`.
 
 ## Shared UX Features
 - Consistent header/menu on all module pages.

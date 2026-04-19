@@ -1,4 +1,4 @@
-const WEBSITES_DATA_FILE = "data/websites.json";
+const WEBSITES_TEXT_FILE = "data/websites-source.txt";
 
 function normalizeWebsiteItem(item) {
   const name = typeof item?.name === "string" ? item.name.trim() : "";
@@ -13,24 +13,68 @@ function normalizeWebsiteItem(item) {
   return { name, description, link, category: category || "Uncategorized" };
 }
 
-function normalizeWebsitesData(data) {
-  const items = Array.isArray(data?.websites) ? data.websites : [];
-  return items.map(normalizeWebsiteItem).filter(Boolean);
+function parseWebsitesSourceText(rawText) {
+  if (typeof rawText !== "string" || !rawText.trim()) {
+    return [];
+  }
+
+  const blocks = rawText
+    .split(/\n---\n|\r\n---\r\n/)
+    .map((block) => block.trim())
+    .filter(Boolean);
+
+  const items = [];
+  blocks.forEach((block) => {
+    const lines = block
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith("#"));
+
+    const draft = {};
+    lines.forEach((line) => {
+      const separatorIndex = line.indexOf(":");
+      if (separatorIndex <= 0) {
+        return;
+      }
+
+      const key = line.slice(0, separatorIndex).trim().toLowerCase();
+      const value = line.slice(separatorIndex + 1).trim();
+      if (value) {
+        draft[key] = value;
+      }
+    });
+
+    const normalized = normalizeWebsiteItem({
+      name: draft.name,
+      description: draft.description,
+      link: draft.link,
+      category: draft.category
+    });
+
+    if (normalized) {
+      items.push(normalized);
+    }
+  });
+
+  return items;
 }
 
-async function loadWebsitesData() {
+async function loadWebsitesTextData() {
   try {
-    const response = await fetch(`${WEBSITES_DATA_FILE}?v=${Date.now()}`, { cache: "no-store" });
+    const response = await fetch(`${WEBSITES_TEXT_FILE}?v=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) {
       return [];
     }
 
-    const json = await response.json();
-    return normalizeWebsitesData(json);
+    const rawText = await response.text();
+    return parseWebsitesSourceText(rawText);
   } catch (error) {
-    // Fetch can fail when the page is opened using file://.
     return [];
   }
+}
+
+async function loadWebsitesData() {
+  return loadWebsitesTextData();
 }
 
 function toSafeUrl(link) {
@@ -161,7 +205,7 @@ function initWebsites(root) {
     allWebsites = data;
 
     if (allWebsites.length === 0) {
-      statusEl.innerHTML = '<span class="speed-warn">Could not load websites data. If running via file://, use a local server.</span>';
+      statusEl.innerHTML = '<span class="speed-warn">Could not load websites data from text source. If running via file://, use a local server.</span>';
       listEl.innerHTML = "";
       return;
     }

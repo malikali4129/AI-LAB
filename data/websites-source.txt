@@ -1,0 +1,26 @@
+# Websites source file for AIM LAB
+# How to edit:
+# 1) Keep each website in one block.
+# 2) Separate blocks with ---
+# 3) Use these keys: name, description, link, category
+# 4) Save file and refresh websites page.
+
+name: MDN Web Docs
+description: Comprehensive documentation for HTML, CSS, JavaScript, and modern web APIs.
+link: https://developer.mozilla.org/
+category: Documentation
+---
+name: Stack Overflow
+description: Community-driven Q&A platform for programming and software development.
+link: https://stackoverflow.com/
+category: Community
+---
+name: Maze
+description: ss fff.
+link: https://neonmaze.pages.dev/
+category: Games
+---
+name: Ali
+description: Ali
+link: malik
+category: apple

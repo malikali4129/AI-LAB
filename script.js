@@ -111,7 +111,7 @@ const MODULE_REGISTRY = [
     shortTitle: "Websites",
     menuTitle: "Websites",
     homeTitle: "Websites Directory",
-    homeDescription: "Browse useful websites with JSON-based search and category filters"
+    homeDescription: "Browse useful websites with text-based search and category filters"
   },
   {
     href: "about.html",
