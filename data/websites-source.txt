@@ -5,22 +5,502 @@
 # 3) Use these keys: name, description, link, category
 # 4) Save file and refresh websites page.
 
-name: MDN Web Docs
-description: Comprehensive documentation for HTML, CSS, JavaScript, and modern web APIs.
-link: https://developer.mozilla.org/
-category: Documentation
+name: Locu
+description: Deep work tool for developers that integrates focus timers with Jira/Linear tasks.
+link: https://locu.app/
+category: Productivity
 ---
-name: Stack Overflow
-description: Community-driven Q&A platform for programming and software development.
-link: https://stackoverflow.com/
+name: Windsurf
+description: An "agentic" IDE by Codeium that understands your full codebase and terminal in real-time.
+link: https://codeium.com/windsurf
+category: Development
+---
+name: Lovable
+description: Generates production-ready TypeScript and React apps from plain English prompts.
+link: https://lovable.dev/
+category: Development
+---
+name: HMPL
+description: A small tool to fetch and render server-side HTML safely without heavy frameworks.
+link: https://hmpl-lang.org/
+category: Development
+---
+name: Bolt.new
+description: Full-stack web development environment that runs entirely in the browser via WebContainers.
+link: https://bolt.new/
+category: Development
+---
+name: Dify
+description: Open-source platform for orchestrating LLM apps and "agentic" workflows.
+link: https://dify.ai/
+category: AI Tools
+---
+name: Radio Garden
+description: Interactive 3D globe to listen to live radio stations from any city on Earth.
+link: https://radio.garden/
+category: Entertainment
+---
+name: Tiny Blocks
+description: A curated library of specific e-commerce design elements and components.
+link: https://tinyblocks.cc/
+category: Design
+---
+name: Window Swap
+description: Watch high-definition views from windows shared by people all over the world.
+link: https://www.window-swap.com/
+category: Inspiration
+---
+name: 10 Minute Mail
+description: Instant temporary email address to avoid spam when signing up for services.
+link: https://10minutemail.com/
+category: Utilities
+---
+name: Snyk Code
+description: AI-driven security scanner that finds and fixes vulnerabilities in your code.
+link: https://snyk.io/product/snyk-code/
+category: Security
+---
+name: Raycast
+description: A supercharged, extendable command palette for macOS and Windows to replace launchers.
+link: https://www.raycast.com/
+category: Productivity
+---
+name: Motia
+description: Code-first backend framework specifically designed for building APIs and AI agents.
+link: https://motia.dev/
+category: Development
+---
+name: V0 by Vercel
+description: Generative UI tool that turns text descriptions into high-quality React components.
+link: https://v0.dev/
+category: Design/Development
+---
+name: Hemingway Editor
+description: Web-based tool that highlights complex sentences and common writing errors.
+link: https://hemingwayapp.com/
+category: Writing
+---
+name: A Soft Murmur
+description: Customizable ambient noise generator to help with focus or sleep.
+link: https://asoftmurmur.com/
+category: Productivity
+---
+name: OpenRouter
+description: A single API gateway to access almost any major AI model (GPT, Claude, Llama).
+link: https://openrouter.ai/
+category: AI Tools
+---
+name: Hoverstat.es
+description: A curated gallery of experimental and highly interactive web design projects.
+link: https://hoverstat.es/
+category: Design
+---
+name: Task Runner (Go)
+description: A task runner/build tool that is simpler and easier to use than GNU Make.
+link: https://taskfile.dev/
+category: Development
+---
+name: Kleki
+description: A full-featured digital paint and sketch tool that runs entirely in the browser.
+link: https://kleki.com/
+category: Creative
+---
+name: This Person Does Not Exist
+description: Generates hyper-realistic AI faces for use in mockups or privacy protection.
+link: https://thispersondoesnotexist.com/
+category: Utilities
+---
+name: LibriVox
+description: Massive library of free, public domain audiobooks read by volunteers.
+link: https://librivox.org/
+category: Education
+---
+name: Photopea
+description: A professional-grade image editor that works like Photoshop inside your browser.
+link: https://www.photopea.com/
+category: Creative
+---
+name: Carrd
+description: Simple, free, fully responsive one-page sites for pretty much anything.
+link: https://carrd.co/
+category: Design
+---
+name: Explainshell
+description: Matches command-line arguments to help text to explain what a command does.
+link: https://explainshell.com/
+category: Development
+---
+name: Temp Mail
+description: Disposable email service to protect your primary inbox from marketing spam.
+link: https://temp-mail.org/
+category: Utilities
+---
+name: MyNoise
+description: Professional-grade soundscapes and frequency-calibrated background noise.
+link: https://mynoise.net/
+category: Productivity
+---
+name: Roadmap.sh
+description: Community-driven visual roadmaps for learning various dev roles and technologies.
+link: https://roadmap.sh/
+category: Education
+---
+name: CleanPNG
+description: Large database of transparent high-quality PNG images for designers.
+link: https://www.cleanpng.com/
+category: Design
+---
+name: Tally
+description: A free form builder that works like Notion—simple and powerful.
+link: https://tally.so/
+category: Productivity
+---
+name: Responsively App
+description: A browser for developers that mirrors interactions across multiple screen sizes.
+link: https://responsively.app/
+category: Development
+---
+name: Fontjoy
+description: Uses deep learning to generate balanced font pairings for websites.
+link: https://fontjoy.com/
+category: Design
+---
+name: Remove.bg
+description: One-click AI tool to remove backgrounds from any image automatically.
+link: https://www.remove.bg/
+category: Creative
+---
+name: Excalidraw
+description: Virtual whiteboard for sketching hand-drawn like diagrams with end-to-end encryption.
+link: https://excalidraw.com/
+category: Productivity
+---
+name: JSON Crack
+description: Visualizes complex JSON structures into interactive graphs and trees.
+link: https://jsoncrack.com/
+category: Development
+---
+name: Untools
+description: A collection of thinking frameworks and mental models to help solve problems.
+link: https://untools.co/
+category: Education
+---
+name: ToffeeShare
+description: Private, peer-to-peer file sharing with no file size limits and no storage.
+link: https://toffeeshare.com/
+category: Utilities
+---
+name: Carbon
+description: Create and share beautiful images of your source code snippets.
+link: https://carbon.now.sh/
+category: Development
+---
+name: Small Dev Tools
+description: A collection of 30+ tiny tools for developers like encoders, formatters, and testers.
+link: https://smalldev.tools/
+category: Development
+---
+name: BrowserStack
+description: Cloud-based platform for testing websites on real mobile and desktop browsers.
+link: https://www.browserstack.com/
+category: Development
+---
+name: Bitly
+description: URL shortener with powerful link management and tracking capabilities.
+link: https://bitly.com/
+category: Utilities
+---
+name: CodeSandbox
+description: An online code editor and cloud development platform for rapid web development.
+link: https://codesandbox.io/
+category: Development
+---
+name: Glitch
+description: A friendly community where anyone can build the app of their dreams.
+link: https://glitch.com/
+category: Community/Development
+---
+name: Netlify
+description: A powerful platform for deploying and managing modern web projects.
+link: https://www.netlify.com/
+category: Documentation/Development
+---
+name: Vercel
+description: The platform for frontend developers, providing the speed and reliability needed to scale.
+link: https://vercel.com/
+category: Documentation/Development
+---
+name: GitHub
+description: The world's leading AI-powered developer platform.
+link: https://github.com/
+category: Community/Development
+---
+name: GitLab
+description: A complete DevOps platform, delivered as a single application.
+link: https://about.gitlab.com/
+category: Documentation/Development
+---
+name: Bitbucket
+description: A Git-based source code repository hosting service owned by Atlassian.
+link: https://bitbucket.org/
+category: Documentation/Development
+---
+name: Postman
+description: An API platform for developers to design, build, test, and iterate their APIs.
+link: https://www.postman.com/
+category: Documentation/Development
+---
+name: Insomnia
+description: The open-source, desktop API client for GraphQL, REST, and gRPC.
+link: https://insomnia.rest/
+category: Development
+---
+name: Figma
+description: A collaborative interface design tool.
+link: https://www.figma.com/
+category: Design
+---
+name: Canva
+description: An online design and visual communication platform.
+link: https://www.canva.com/
+category: Design
+---
+name: Dribbble
+description: The world's leading community for creatives to share, grow, and get hired.
+link: https://dribbble.com/
+category: Community/Design
+---
+name: Behance
+description: The world's largest creative network for showcasing and discovering creative work.
+link: https://www.behance.net/
+category: Community/Design
+---
+name: Adobe Creative Cloud
+description: A set of applications and services from Adobe Inc. for graphic design, video editing, web development, photography.
+link: https://www.adobe.com/creativecloud.html
+category: Design/Creative
+---
+name: Notion
+description: A single space where you can think, write, and plan.
+link: https://www.notion.so/
+category: Productivity
+---
+name: Trello
+description: A visual tool that empowers your team to manage any type of project, workflow, or task tracking.
+link: https://trello.com/
+category: Productivity
+---
+name: Asana
+description: A mobile and web application designed to help teams organize, track, and manage their work.
+link: https://asana.com/
+category: Productivity
+---
+name: Slack
+description: A messaging program designed specifically for teams.
+link: https://slack.com/
+category: Community/Productivity
+---
+name: Discord
+description: An instant messaging and VoIP social platform.
+link: https://discord.com/
 category: Community
 ---
-name: Maze
-description: ss fff.
-link: https://neonmaze.pages.dev/
-category: Games
+name: Reddit
+description: A social news aggregation, web content rating, and discussion website.
+link: https://www.reddit.com/
+category: Community
 ---
-name: Ali
-description: Ali
-link: malik
-category: apple
+name: Hacker News
+description: A social news website focusing on computer science and entrepreneurship.
+link: https://news.ycombinator.com/
+category: Community
+---
+name: Dev.to
+description: A community of software developers who write articles, take part in discussions, and build their professional profiles.
+link: https://dev.to/
+category: Community/Development
+---
+name: Medium
+description: An open platform where over 100 million readers come to find insightful and dynamic thinking.
+link: https://medium.com/
+category: Community/Inspiration
+---
+name: Quora
+description: A social question-and-answer website based in Mountain View, California.
+link: https://www.quora.com/
+category: Community
+---
+name: Coursera
+description: An American massive open online course provider.
+link: https://www.coursera.org/
+category: Education
+---
+name: edX
+description: An American massive open online course provider created by Harvard and MIT.
+link: https://www.edx.org/
+category: Education
+---
+name: Udemy
+description: A massive open online course provider aimed at professional adults and students.
+link: https://www.udemy.com/
+category: Education
+---
+name: Khan Academy
+description: A non-profit educational organization.
+link: https://www.khanacademy.org/
+category: Education
+---
+name: FreeCodeCamp
+description: A non-profit organization that consists of an interactive learning web platform.
+link: https://www.freecodecamp.org/
+category: Education/Development
+---
+name: Codecademy
+description: An American interactive platform that offers free coding classes.
+link: https://www.codecademy.com/
+category: Education/Development
+---
+name: Pluralsight
+description: An American privately held online education company that offers a variety of video training courses for software developers.
+link: https://www.pluralsight.com/
+category: Education/Development
+---
+name: Frontend Masters
+description: In-depth web development courses from industry experts.
+link: https://frontendmasters.com/
+category: Education/Development
+---
+name: Egghead.io
+description: Short, bite-sized video tutorials for web developers.
+link: https://egghead.io/
+category: Education/Development
+---
+name: CSS-Tricks
+description: A website about websites.
+link: https://css-tricks.com/
+category: Documentation/Development
+---
+name: Smashing Magazine
+description: An online magazine for professional web designers and developers.
+link: https://www.smashingmagazine.com/
+category: Documentation/Design/Development
+---
+name: A List Apart
+description: Explores the design, development, and meaning of web content.
+link: https://alistapart.com/
+category: Documentation/Design/Development
+---
+name: Web.dev
+description: Google's platform for helping developers build great web experiences.
+link: https://web.dev/
+category: Documentation/Development
+---
+name: Can I Use
+description: Provides up-to-date browser support tables for support of front-end web technologies on desktop and mobile web browsers.
+link: https://caniuse.com/
+category: Documentation/Development
+---
+name: NPM
+description: A package manager for the JavaScript programming language.
+link: https://www.npmjs.com/
+category: Documentation/Development
+---
+name: Yarn
+description: A software packaging system developed in 2016 by Facebook for the Node.js JavaScript runtime environment.
+link: https://yarnpkg.com/
+category: Documentation/Development
+---
+name: Docker Hub
+description: A cloud-based repository in which Docker users and partners create, test, store and distribute container images.
+link: https://hub.docker.com/
+category: Documentation/Development
+---
+name: Kubernetes
+description: An open-source container-orchestration system for automating computer application deployment, scaling, and management.
+link: https://kubernetes.io/
+category: Documentation/Development
+---
+name: AWS Documentation
+description: Official documentation for Amazon Web Services.
+link: https://docs.aws.amazon.com/
+category: Documentation
+---
+name: Azure Documentation
+description: Official documentation for Microsoft Azure.
+link: https://docs.microsoft.com/en-us/azure/
+category: Documentation
+---
+name: Google Cloud Documentation
+description: Official documentation for Google Cloud Platform.
+link: https://cloud.google.com/docs
+category: Documentation
+---
+name: Firebase Documentation
+description: Official documentation for Firebase.
+link: https://firebase.google.com/docs
+category: Documentation
+---
+name: Supabase Documentation
+description: Official documentation for Supabase, the open-source Firebase alternative.
+link: https://supabase.com/docs
+category: Documentation/Development
+---
+name: MongoDB Documentation
+description: Official documentation for MongoDB.
+link: https://docs.mongodb.com/
+category: Documentation
+---
+name: PostgreSQL Documentation
+description: Official documentation for PostgreSQL.
+link: https://www.postgresql.org/docs/
+category: Documentation
+---
+name: MySQL Documentation
+description: Official documentation for MySQL.
+link: https://dev.mysql.com/doc/
+category: Documentation
+---
+name: Redis Documentation
+description: Official documentation for Redis.
+link: https://redis.io/documentation
+category: Documentation
+---
+name: GraphQL Documentation
+description: Official documentation for GraphQL.
+link: https://graphql.org/learn/
+category: Documentation
+---
+name: Apollo GraphQL Documentation
+description: Official documentation for Apollo GraphQL.
+link: https://www.apollographql.com/docs/
+category: Documentation
+---
+name: React Documentation
+description: Official documentation for React.
+link: https://react.dev/
+category: Documentation
+---
+name: Vue.js Documentation
+description: Official documentation for Vue.js.
+link: https://vuejs.org/guide/introduction.html
+category: Documentation
+---
+name: Angular Documentation
+description: Official documentation for Angular.
+link: https://angular.io/docs
+category: Documentation
+---
+name: Svelte Documentation
+description: Official documentation for Svelte.
+link: https://svelte.dev/docs
+category: Documentation
+---
+name: Next.js Documentation
+description: Official documentation for Next.js.
+link: https://nextjs.org/docs
+category: Documentation
+---
+name: Nuxt.js Documentation
+description: Official documentation for Nuxt.js.
+link: https://nuxtjs.org/docs/get-started/introduction
+category: Documentation
