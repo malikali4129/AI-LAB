@@ -11,6 +11,7 @@ const aboutModuleRoot = document.getElementById("about-module");
 const lifeStatsModuleRoot = document.getElementById("life-stats-module");
 const guessNumberModuleRoot = document.getElementById("guess-number-module");
 const mindReaderModuleRoot = document.getElementById("mind-reader-module");
+const websitesModuleRoot = document.getElementById("websites-module");
 const moduleVersion = document.getElementById("module-version");
 const menuBtn = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
@@ -103,6 +104,14 @@ const MODULE_REGISTRY = [
     menuTitle: "Mind Reader",
     homeTitle: "Mind Reader",
     homeDescription: "Cinematic oracle story with live geolocation reveal"
+  },
+  {
+    href: "websites.html",
+    icon: "🌍",
+    shortTitle: "Websites",
+    menuTitle: "Websites",
+    homeTitle: "Websites Directory",
+    homeDescription: "Browse useful websites with JSON-based search and category filters"
   },
   {
     href: "about.html",
@@ -380,6 +389,9 @@ if (window.initGuessNumberGame && guessNumberModuleRoot) {
 }
 if (window.initMindReader && mindReaderModuleRoot) {
   window.initMindReader(mindReaderModuleRoot);
+}
+if (window.initWebsites && websitesModuleRoot) {
+  window.initWebsites(websitesModuleRoot);
 }
 setupMobileMenu();
 setupPageSwitchTransitions();

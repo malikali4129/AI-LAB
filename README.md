@@ -94,6 +94,18 @@ This file gives a quick overview of the current tools (modules) in AIM LAB.
   - Attempt counter with win state
   - Round history log and quick new-game reset
 
+## 10) Websites Directory
+- Page: `websites.html`
+- Purpose: Shows a searchable and filterable directory of useful websites.
+- Data source:
+  - Loads from `data/websites.json`
+  - Expected fields per item: `name`, `description`, `link`, `category`
+- Included behavior:
+  - Keyword search across name, description, and category
+  - Category dropdown filter
+  - Result count and no-results state
+  - External link button for each website card
+
 ## Shared UX Features
 - Consistent header/menu on all module pages.
 - Smooth page transitions (fade-out on navigation, fade-in text on next page).
