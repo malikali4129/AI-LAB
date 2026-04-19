@@ -16,5 +16,3 @@ Required Files (Recommended size: 1200 x 630 pixels, Format: PNG):
 - roaster.png
 - websites.png
 - wheel.png
-
-These images will be shown on platforms like iMessage, Twitter, Facebook, Discord, Slack, etc., whenever you share a link to specific tools.
