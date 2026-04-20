@@ -12,6 +12,7 @@ const lifeStatsModuleRoot = document.getElementById("life-stats-module");
 const guessNumberModuleRoot = document.getElementById("guess-number-module");
 const mindReaderModuleRoot = document.getElementById("mind-reader-module");
 const websitesModuleRoot = document.getElementById("websites-module");
+const pdfToolsModuleRoot = document.getElementById("pdf-tools-module");
 const moduleVersion = document.getElementById("module-version");
 const menuBtn = document.getElementById("menu-btn");
 const menuDropdown = document.getElementById("menu-dropdown");
@@ -112,6 +113,14 @@ const MODULE_REGISTRY = [
     menuTitle: "Websites",
     homeTitle: "Websites Directory",
     homeDescription: "Browse useful websites with text-based search and category filters"
+  },
+  {
+    href: "pdf-tools.html",
+    icon: "📄",
+    shortTitle: "PDF Tools",
+    menuTitle: "PDF Tools",
+    homeTitle: "PDF Tools",
+    homeDescription: "Convert JPGs, extract PDF pages to images, and merge PDFs in the browser"
   },
   {
     href: "about.html",
@@ -392,6 +401,9 @@ if (window.initMindReader && mindReaderModuleRoot) {
 }
 if (window.initWebsites && websitesModuleRoot) {
   window.initWebsites(websitesModuleRoot);
+}
+if (window.initPdfTools && pdfToolsModuleRoot) {
+  window.initPdfTools(pdfToolsModuleRoot);
 }
 setupMobileMenu();
 setupPageSwitchTransitions();

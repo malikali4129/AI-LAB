@@ -116,6 +116,23 @@ This file gives a quick overview of the current tools (modules) in AIM LAB.
   - `category: ...`
 - Save the file and refresh `websites.html`.
 
+## 11) PDF Tools
+- Page: `pdf-tools.html`
+- Purpose: Fully client-side PDF toolkit with three modules:
+  - JPG to PDF
+  - PDF to JPG
+  - Merge PDFs
+- Browser libraries used by the page:
+  - `pdf.js` for PDF rendering and page previews
+  - `jsPDF` for PDF creation from images
+  - `pdf-lib` for PDF merging
+  - `JSZip` for packaging extracted JPG pages into one download
+- Included behavior:
+  - Drag and drop or click-to-upload file intake
+  - Draggable preview cards with reorder support
+  - Progress bar, spinner, toast notices, and roast-style completion messages
+  - Mobile-friendly layout and dark themed glass UI
+
 ## Shared UX Features
 - Consistent header/menu on all module pages.
 - Smooth page transitions (fade-out on navigation, fade-in text on next page).

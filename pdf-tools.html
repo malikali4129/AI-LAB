@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Tools | AIM LAB</title>
+  <meta name="description" content="Convert JPG to PDF, extract PDF pages to JPG, and merge PDFs in a fully client-side browser tool." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <meta property="og:title" content="PDF Tools | AIM LAB" />
+  <meta property="og:description" content="Convert JPG to PDF, extract PDF pages to JPG, and merge PDFs in a fully client-side browser tool." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PDF Tools | AIM LAB" />
+  <meta name="twitter:description" content="Convert JPG to PDF, extract PDF pages to JPG, and merge PDFs in a fully client-side browser tool." />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <header class="topbar" data-reveal>
+      <div class="header-left">
+        <span class="module-icon">📄</span>
+        <h1 class="module-title"><span class="module-title-glitch" data-text="PDF Tools">PDF Tools</span><span class="module-version" id="module-version" aria-label="Version">9</span></h1>
+      </div>
+      <div class="header-right">
+        <nav class="header-shortcuts" aria-label="Quick modules">
+          <a href="index.html" class="shortcut-icon" title="Home">🏠</a>
+          <a href="download-speed.html" class="shortcut-icon" title="Download">⚡</a>
+          <a href="password-checker.html" class="shortcut-icon" title="Password">🔐</a>
+          <a href="gpa-calculator.html" class="shortcut-icon" title="GPA">🎓</a>
+          <a href="roaster.html" class="shortcut-icon" title="Roaster">🔥</a>
+          <a href="wheel.html" class="shortcut-icon" title="Wheel Picker">🎡</a>
+          <a href="life-progress-tracker.html" class="shortcut-icon" title="Life Progress Tracker">⏳</a>
+        </nav>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <nav class="menu-dropdown" id="menu-dropdown" data-reveal>
+      <a href="index.html" class="menu-item">🏠 Home</a>
+      <a href="download-speed.html" class="menu-item">⚡ Download</a>
+      <a href="password-checker.html" class="menu-item">🔐 Password</a>
+      <a href="gpa-calculator.html" class="menu-item">🎓 GPA</a>
+      <a href="roaster.html" class="menu-item">🔥 Roaster</a>
+      <a href="wheel.html" class="menu-item">🎡 Wheel Picker</a>
+      <a href="life-progress-tracker.html" class="menu-item">⏳ Life Progress Tracker</a>
+      <a href="pdf-tools.html" class="menu-item">📄 PDF Tools</a>
+    </nav>
+
+    <main class="stage feature-page">
+      <section id="pdf-tools-module" class="module-root" data-reveal></section>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="modules/pdfTools.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
